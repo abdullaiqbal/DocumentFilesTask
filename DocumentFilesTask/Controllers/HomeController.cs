@@ -101,6 +101,8 @@ namespace DocumentFilesTask.Controllers
             if (extension1 == ".docx" || extension1 == ".pdf")
             {
 
+                  
+
 
                 await fromFile.FormFile1.CopyToAsync(memoryStream);
 
