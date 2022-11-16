@@ -1,0 +1,54 @@
+﻿
+@*@model DocumentFilesTask.Models.BufferedSingleFileUploadDb*@
+@model DocumentFilesTask.Models.BufferedSingleFileUploadDb
+
+
+<form enctype="multipart/form-data" method="post" asp-controller="Home" asp-action="FilesUpload">
+    <dl>
+        <dt>
+            <label asp-for="FormFile1"></label>
+        </dt>
+        <dd>
+            <input asp-for="FormFile1" type="file" required>
+            <span style="color:red">@ViewBag.message</span>
+        </dd>
+
+        <dt>
+            <label asp-for="FormFile2"></label>
+            
+        </dt>
+        <dd>
+            <input asp-for="FormFile2" type="file" required>
+            <span style="color:red">@ViewBag.message</span>
+        </dd>
+
+        <dt>
+            <label asp-for="FormFile3"></label>
+        </dt>
+        <dd>
+            <input asp-for="FormFile3" type="file" required>
+            <span style="color:red">@ViewBag.message</span>
+        </dd>
+    </dl>
+    @*<input asp-page-handler="Upload" class="btn" type="submit" value="Upload">*@
+    <div>
+        <input type="submit" id="UploadBox" name="Uploadedfile" onclick="return ValidateInput()" class="btn btn-primary btn-size" value="Upload" />
+    </div>
+</form>
+
+
+
+<script>
+    function ValidateInput() {
+        if (document.getElementById("UploadBox").value == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please upload Document!',
+                footer: '<a href="">Why do I have this issue?</a>'
+            });
+            return false;
+        }
+        return true;
+    }
+</script>
